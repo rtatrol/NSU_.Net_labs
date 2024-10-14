@@ -4,35 +4,35 @@ namespace DreamTeam
 {
     class Hackaton
     {
-
         List<Junior> juniors;
-        List<TeamLead> team_leaders;
+        List<TeamLead> teamLeaders;
         static Random rand = new Random();
-        public Hackaton(List<Junior> Juniors, List<TeamLead> Team_leaders)
+        public Hackaton(List<Junior> Juniors, List<TeamLead> TeamLeaders)
         {
             juniors = Juniors;
-            team_leaders = Team_leaders;
+            teamLeaders = TeamLeaders;
         }
 
         public double Run()
         {
-            HRManager hrmanager = new HRManager(juniors, team_leaders);
+            HRManager hrManager = new HRManager(juniors, teamLeaders);
             MakePrefer();
-            List<(Junior, TeamLead)> teams = hrmanager.make_teams();
-            double harmony = hrmanager.calculate_harmony(teams);
+            List<(Junior, TeamLead)> teams = hrManager.MakeTeams();
+            HRDirector hrDirector = new HRDirector(teams);
+            double harmony = hrDirector.CalculateHarmony();
             return harmony;
         }
 
         private void MakePrefer()
         {
             var shaffle_jun = new List<Junior>(juniors);
-            var shaffle_lead = new List<TeamLead>(team_leaders);
+            var shaffle_lead = new List<TeamLead>(teamLeaders);
             foreach (var jun in juniors)
             {
                 Shaffle<TeamLead>(shaffle_lead);
                 jun.preferences = new List<TeamLead>(shaffle_lead);
             }
-            foreach (var lead in team_leaders)
+            foreach (var lead in teamLeaders)
             {
                 Shaffle<Junior>(shaffle_jun);
                 lead.preferences = new List<Junior>(shaffle_jun);
@@ -46,9 +46,7 @@ namespace DreamTeam
             {
                 n--;
                 int k = rand.Next(n + 1);
-                T value = list[k];
-                list[k] = list[n];
-                list[n] = value;
+                (list[n], list[k]) = (list[k], list[n]);
             }
         }
     }

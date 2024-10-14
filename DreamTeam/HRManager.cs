@@ -1,48 +1,33 @@
 
 namespace DreamTeam
 {
-
     class HRManager
     {
-        List<Junior> juniors;
-        List<TeamLead> team_leaders;
-        public HRManager(List<Junior> Juniors, List<TeamLead> Team_leaders)
+        readonly List<Junior> juniors;
+        readonly List<TeamLead> teamLeaders;
+        public HRManager(List<Junior> Juniors, List<TeamLead> TeamLeaders)
         {
             juniors = Juniors;
-            team_leaders = Team_leaders;
+            teamLeaders = TeamLeaders;
         }
 
-        public List<(Junior, TeamLead)> make_teams()
+        public List<(Junior, TeamLead)> MakeTeams()
         {
-            List<(Junior, TeamLead)> teams = new List<(Junior, TeamLead)>();
-            var stayed_leaders = new List<TeamLead>(team_leaders);
+            var teams = new List<(Junior, TeamLead)>();
+            var stayedLeaders = new List<TeamLead>(teamLeaders);
             foreach (var jun in juniors)
             {
                 foreach (var lead in jun.preferences)
                 {
-                    if (stayed_leaders.Contains(lead))
+                    if (stayedLeaders.Contains(lead))
                     {
-                        stayed_leaders.Remove(lead);
+                        stayedLeaders.Remove(lead);
                         teams.Add((jun, lead));
                         break;
                     }
                 }
             }
-
             return teams;
-        }
-        public double calculate_harmony(List<(Junior, TeamLead)> teams)
-        {
-            double total = 0;
-            int junior_prefer_len = teams[0].Item1.preferences.Count;
-            int team_leaders_prefer_len = teams[0].Item2.preferences.Count;
-            foreach (var (jun, lead) in teams)
-            {
-                double jun_score = junior_prefer_len - jun.preferences.IndexOf(lead);
-                double lead_score = team_leaders_prefer_len - lead.preferences.IndexOf(jun);
-                total += (jun_score + lead_score);
-            }
-            return total / (2 * teams.Count);
         }
     }
 }

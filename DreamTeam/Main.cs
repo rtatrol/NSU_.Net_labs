@@ -5,26 +5,27 @@ namespace DreamTeam
     {
         static void Main(string[] args)
         {
+            FileParser parser = new FileParser();
 
-            List<Junior> juniors = Junior.Make_list(FileParser.Parse("data/Juniors20.csv"));
-            List<TeamLead> team_leaders = TeamLead.Make_list(FileParser.Parse("data/Teamleads20.csv"));
+            List<Junior> juniors = parser.ParseJuniors("data/Juniors20.csv");
+            List<TeamLead> teamLeaders = parser.ParseTeamLeads("data/Teamleads20.csv");
 
-            Hackaton hackaton = new Hackaton(juniors, team_leaders);
+            Hackaton hackaton = new Hackaton(juniors, teamLeaders);
 
             int hackatonsNum = 1000;
             double summaryResult = 0;
-            double[] harmony_results = new double[hackatonsNum];
+            double[] harmonyResults = new double[hackatonsNum];
 
             for (int i = 0; i < hackatonsNum; i++)
             {
                 double harmony = hackaton.Run();
                 summaryResult += harmony;
-                harmony_results[i] = harmony;
+                harmonyResults[i] = harmony;
             }
 
             for (int i = 0; i < hackatonsNum; i++)
             {
-                Console.WriteLine($"Hackaton№ {i+1}, result {harmony_results[i]}");
+                Console.WriteLine($"Hackaton№ {i+1}, result {harmonyResults[i]}");
             }
             Console.WriteLine($"MEAN Harmony {summaryResult / hackatonsNum}");
         }

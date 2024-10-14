@@ -4,31 +4,33 @@ namespace DreamTeam
 {
     public class Person
     {
-        public string id, Name;
+        public string id, name;
 
         public Person(string csvLine)
         {
             string[] columns = csvLine.Split(';');
             id = columns[0];
-            Name = columns[1];
+            name = columns[1];
         }
     }
     public class Junior : Person
     {
         public List<TeamLead> preferences;
+
         public Junior(string name) : base(name)
         {
-            preferences = new List<TeamLead>();
+            preferences = [];
         }
-        public static List<Junior> Make_list(List<string> list)
+
+        public static List<Junior> MakeList(List<string> list)
         {
-            var jun_list = new List<Junior>();
+            var junList = new List<Junior>();
             foreach (var line in list)
             {
-                var new_june = new Junior(line);
-                jun_list.Add(new_june);
+                var newJune = new Junior(line);
+                junList.Add(newJune);
             }
-            return jun_list;
+            return junList;
         }
     }
     public class TeamLead : Person
@@ -36,17 +38,18 @@ namespace DreamTeam
         public List<Junior> preferences;
         public TeamLead(string name) : base(name)
         {
-            preferences = new List<Junior>();
+            preferences = [];
         }
-        public static List<TeamLead> Make_list(List<string> list)
+
+        public static List<TeamLead> MakeList(List<string> list)
         {
-            var lead_list = new List<TeamLead>();
+            var leadList = new List<TeamLead>();
             foreach (var line in list)
             {
-                var new_lead = new TeamLead(line);
-                lead_list.Add(new_lead);
+                var newLead = new TeamLead(line);
+                leadList.Add(newLead);
             }
-            return lead_list;
+            return leadList;
         }
     }
 
