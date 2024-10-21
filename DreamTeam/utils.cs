@@ -17,7 +17,6 @@ namespace DreamTeam
                         personList.Add(line);
                     }
                 }
-
             }
             return personList;
         }

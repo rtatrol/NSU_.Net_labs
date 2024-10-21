@@ -1,17 +1,13 @@
 
 namespace DreamTeam
 {
-    class HRManager
+    public interface IHRManager
     {
-        readonly List<Junior> juniors;
-        readonly List<TeamLead> teamLeaders;
-        public HRManager(List<Junior> Juniors, List<TeamLead> TeamLeaders)
-        {
-            juniors = Juniors;
-            teamLeaders = TeamLeaders;
-        }
-
-        public List<(Junior, TeamLead)> MakeTeams()
+        public List<(Junior, TeamLead)> MakeTeams(List<Junior> juniors, List<TeamLead> teamLeaders);
+    }
+    class HRManager : IHRManager
+    {
+        public List<(Junior, TeamLead)> MakeTeams(List<Junior> juniors, List<TeamLead> teamLeaders)
         {
             var teams = new List<(Junior, TeamLead)>();
             var stayedLeaders = new List<TeamLead>(teamLeaders);

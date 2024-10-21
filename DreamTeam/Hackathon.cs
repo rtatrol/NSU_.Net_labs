@@ -2,28 +2,33 @@ using System.Collections.Generic;
 
 namespace DreamTeam
 {
-    class Hackaton
+    public interface IHackaton
     {
-        List<Junior> juniors;
-        List<TeamLead> teamLeaders;
-        static Random rand = new Random();
-        public Hackaton(List<Junior> Juniors, List<TeamLead> TeamLeaders)
-        {
-            juniors = Juniors;
-            teamLeaders = TeamLeaders;
-        }
+        public static Random rand = new Random();
+        public double Run(List<Junior> juniors, List<TeamLead> teamLeaders);
+        public void MakePrefer(List<Junior> juniors, List<TeamLead> teamLeaders);
 
-        public double Run()
+    }
+    class Hackaton : IHackaton
+    {
+        IHRManager _hrManager;
+        IHRDirector _hrDirector;
+        public Hackaton(IHRManager hRManager, IHRDirector hRDirector)
         {
-            HRManager hrManager = new HRManager(juniors, teamLeaders);
-            MakePrefer();
-            List<(Junior, TeamLead)> teams = hrManager.MakeTeams();
-            HRDirector hrDirector = new HRDirector(teams);
-            double harmony = hrDirector.CalculateHarmony();
+            _hrManager = hRManager;
+            _hrDirector = hRDirector;
+        }
+        public double Run(List<Junior> juniors, List<TeamLead> teamLeaders)
+        {
+            //HRManager hrManager = new HRManager();
+            MakePrefer(juniors, teamLeaders);
+            List<(Junior, TeamLead)> teams = _hrManager.MakeTeams(juniors, teamLeaders);
+            //HRDirector hrDirector = new HRDirector();
+            double harmony = _hrDirector.CalculateHarmony(teams);
             return harmony;
         }
 
-        private void MakePrefer()
+        public void MakePrefer(List<Junior> juniors, List<TeamLead> teamLeaders)
         {
             var shaffle_jun = new List<Junior>(juniors);
             var shaffle_lead = new List<TeamLead>(teamLeaders);
@@ -45,7 +50,7 @@ namespace DreamTeam
             while (n > 1)
             {
                 n--;
-                int k = rand.Next(n + 1);
+                int k = IHackaton.rand.Next(n + 1);
                 (list[n], list[k]) = (list[k], list[n]);
             }
         }

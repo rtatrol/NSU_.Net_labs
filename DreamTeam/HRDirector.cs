@@ -1,14 +1,13 @@
 namespace DreamTeam
 {
-    public class HRDirector
+    public interface IHRDirector
     {
-        List<(Junior, TeamLead)> teams;
-        public HRDirector(List<(Junior, TeamLead)> Teams)
-        {
-            teams = new List<(Junior, TeamLead)>(Teams);
-        }
+        public double CalculateHarmony(List<(Junior, TeamLead)> teams);
+    }
+    public class HRDirector : IHRDirector
+    {
 
-        public double CalculateHarmony()
+        public double CalculateHarmony(List<(Junior, TeamLead)> teams)
         {
             double total = 0;
             int junior_prefer_len = teams[0].Item1.preferences.Count;
