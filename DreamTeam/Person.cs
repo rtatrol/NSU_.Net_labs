@@ -1,5 +1,3 @@
-using System.Linq.Expressions;
-
 namespace DreamTeam
 {
     public class Person
@@ -52,5 +50,4 @@ namespace DreamTeam
             return leadList;
         }
     }
-
 }

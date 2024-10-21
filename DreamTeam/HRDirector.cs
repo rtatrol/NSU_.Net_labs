@@ -1,12 +1,8 @@
 namespace DreamTeam
 {
-    public interface IHRDirector
-    {
-        public double CalculateHarmony(List<(Junior, TeamLead)> teams);
-    }
-    public class HRDirector : IHRDirector
-    {
 
+    public class HRDirector
+    {
         public double CalculateHarmony(List<(Junior, TeamLead)> teams)
         {
             double total = 0;

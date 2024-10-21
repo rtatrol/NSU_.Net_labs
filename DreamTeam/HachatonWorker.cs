@@ -4,9 +4,9 @@ namespace DreamTeam
 {
     public class HackathonWorker : BackgroundService
     {
-        IHackaton _hackaton;
+        Hackaton _hackaton;
         IHostApplicationLifetime _lifetime;
-        public HackathonWorker(IHackaton hackaton, IHostApplicationLifetime lifetime)
+        public HackathonWorker(Hackaton hackaton, IHostApplicationLifetime lifetime)
         {
             _hackaton = hackaton;
             _lifetime = lifetime;
@@ -15,7 +15,7 @@ namespace DreamTeam
         {
             while (!stoppingToken.IsCancellationRequested)
             {
-                var parser = new FileParser();
+                var parser = new Utils.FileParser();
 
                 List<Junior> juniors = parser.ParseJuniors("data/Juniors20.csv");
                 List<TeamLead> teamLeaders = parser.ParseTeamLeads("data/Teamleads20.csv");

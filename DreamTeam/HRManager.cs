@@ -1,29 +1,12 @@
 
 namespace DreamTeam
 {
-    public interface IHRManager
+    public class HRManager(ITeamsGenStrategy teamsGen)
     {
-        public List<(Junior, TeamLead)> MakeTeams(List<Junior> juniors, List<TeamLead> teamLeaders);
-    }
-    class HRManager : IHRManager
-    {
-        public List<(Junior, TeamLead)> MakeTeams(List<Junior> juniors, List<TeamLead> teamLeaders)
+        ITeamsGenStrategy _teamsGen = teamsGen;
+        public List<(Junior, TeamLead)> StrategyRun(List<Junior> juniors, List<TeamLead> teamLeaders)
         {
-            var teams = new List<(Junior, TeamLead)>();
-            var stayedLeaders = new List<TeamLead>(teamLeaders);
-            foreach (var jun in juniors)
-            {
-                foreach (var lead in jun.preferences)
-                {
-                    if (stayedLeaders.Contains(lead))
-                    {
-                        stayedLeaders.Remove(lead);
-                        teams.Add((jun, lead));
-                        break;
-                    }
-                }
-            }
-            return teams;
+            return _teamsGen.MakeTeams(juniors, teamLeaders);
         }
     }
 }
