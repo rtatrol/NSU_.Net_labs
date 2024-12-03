@@ -1,4 +1,5 @@
 .vscode
 DreamTeam/bin
 DreamTeam/obj
-
+DreamTeam.Tests/bin
+DreamTeam.Tests/obj
