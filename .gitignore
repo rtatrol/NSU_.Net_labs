@@ -3,3 +3,6 @@ DreamTeam/bin
 DreamTeam/obj
 DreamTeam.Tests/bin
 DreamTeam.Tests/obj
+DreamTeam.Data/bin
+DreamTeam.Data/obj
+DreamTeam.Data/appsetings.json
