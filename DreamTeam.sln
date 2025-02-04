@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamTeam", "DreamTeam\Drea
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamTeam.Tests", "DreamTeam.Tests\DreamTeam.Tests.csproj", "{0CB6C63F-41DF-4E9D-9ABB-AE8FB8A58FAB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamTeam.Data", "DreamTeam.Data\DreamTeam.Data.csproj", "{B45899F3-8F08-42E5-BDBB-E237899089AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamTeam.Data.Test", "DreamTeam.Data.Test\DreamTeam.Data.Test.csproj", "{4DD1B62E-6514-4710-B7A3-0399487A2475}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{0CB6C63F-41DF-4E9D-9ABB-AE8FB8A58FAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0CB6C63F-41DF-4E9D-9ABB-AE8FB8A58FAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0CB6C63F-41DF-4E9D-9ABB-AE8FB8A58FAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B45899F3-8F08-42E5-BDBB-E237899089AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B45899F3-8F08-42E5-BDBB-E237899089AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B45899F3-8F08-42E5-BDBB-E237899089AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B45899F3-8F08-42E5-BDBB-E237899089AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4DD1B62E-6514-4710-B7A3-0399487A2475}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DD1B62E-6514-4710-B7A3-0399487A2475}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DD1B62E-6514-4710-B7A3-0399487A2475}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DD1B62E-6514-4710-B7A3-0399487A2475}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
