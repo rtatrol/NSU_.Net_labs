@@ -5,6 +5,7 @@ namespace DreamTeam.Data;
 
 public class Hackaton
 {
+    [Key]
     public int Id { get; set; }
     public List<Junior> Juniors { get; set; }
     public List<JuniorPreference> JuniorPreferences { get; set; }
@@ -43,7 +44,7 @@ public class HackatonTeamLead
     public int HackatonId { get; set; }
     public Hackaton Hackaton { get; set; }
     public int TeamLeadId { get; set; }
-    public Junior TeamLead { get; set; }
+    public TeamLead TeamLead { get; set; }
 }
 public class TeamLead
 {

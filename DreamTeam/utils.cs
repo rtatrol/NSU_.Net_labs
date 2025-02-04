@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 namespace DreamTeam
 {
-    class Utils
+    public class Utils
     {
         public class FileParser
         {
