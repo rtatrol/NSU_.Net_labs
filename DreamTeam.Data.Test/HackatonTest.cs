@@ -55,13 +55,12 @@ class HackatonDbContextTest
     {
         using (var context = GetInMemoryDbContext())
         {
-            Console.WriteLine(context.Hackatons.Count());
             var hackaton1 = new Hackaton() { Id = 3, AverageHarmony = 2 };
             var hackaton2 = new Hackaton() { Id = 4, AverageHarmony = 6 };
             context.Hackatons.AddRange(hackaton1, hackaton2);
             context.SaveChanges();
 
-            Assert.AreEqual(context.Hackatons.Average(h => h.AverageHarmony), 3);
+            Assert.AreEqual(context.Hackatons.Average(h => h.AverageHarmony), 4);
         }
     }
 }

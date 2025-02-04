@@ -5,4 +5,5 @@ DreamTeam.Tests/bin
 DreamTeam.Tests/obj
 DreamTeam.Data/bin
 DreamTeam.Data/obj
-DreamTeam.Data/appsetings.json
+DreamTeam.Data.Test/bin
+DreamTeam.Data.Test/obj
